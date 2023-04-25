@@ -1,0 +1,162 @@
+<app-prubeh [krok]="3"></app-prubeh>
+<alert></alert>
+
+<div class="row">
+    <div class="col order-1 order-md-1">
+        <a routerLink="/srovnani" class="btn btn-outline-secondary btn-sm float-left">
+            <i class="fa fa-chevron-left"></i> {{ 'DETAIL.BACK' | translate }}
+        </a>				
+    </div>
+    <div class="col-xs-12 col-md-auto order-3 order-md-2 text-center">
+        <h3 class="text-center mt-4">
+            <span [outerHTML]="'FORM.TABS.SROVNANI' | translate"></span>
+        </h3>
+    </div>
+    <div class="col order-2 order-md-3 text-right">
+        <a (click)="resetPorovnaniProduktu()" class="btn btn-outline-secondary btn-sm">
+            <i class="fas fa-times text-danger"></i> {{ 'SROVNANI.RESET' | translate }}
+        </a>		
+    </div>
+</div>
+
+<!-- Row  -->
+<div class="pricing row justify-content-center">
+    <!-- Column -->
+    <div class="col-md-auto col-sm-6 col-xl-3" *ngFor="let produkt of produkty; let i = index">
+        <div class="card text-center card-shadow on-hover border-1 mb-4">
+            <div class="card-body">
+                <a (click)="detailProduktu(produkt.id)" class="text-body">
+                    <img alt="Logo" style="max-height: 70px; height: 100%;" [src]="produkt.pojistovna.logo ? 'https://admin.srovnavac.cz/storage/' + produkt.pojistovna.logo : ''" />
+                    <h4 class="mt-2 vagl">{{ produkt.nazev }}</h4>
+                </a>
+                <div class="clearfix">
+                    <span class="text-muted small text-nowrap float-left">{{ 'DETAIL.SKODYNAMAJETKU' | translate }}</span>
+                    <span class="ml-4 text-nowrap float-right" [innerHTML]="produkt.zakladni.skodyNaMajetku | menaFormat"></span>
+                </div>
+                <div class="clearfix">
+                    <span class="text-muted small text-nowrap float-left">{{ 'DETAIL.SKODYNAZDRAVI' | translate }}</span>
+                    <span class="ml-4 text-nowrap float-right" [innerHTML]="produkt.zakladni.skodyNaZdravi | menaFormat"></span>
+                </div>
+                <div class="clearfix">
+                    <span class="text-muted small text-nowrap float-left">{{ 'DETAIL.ASISTENCE' | translate }}</span>
+                    <span class="ml-4 text-nowrap float-right" [innerHTML]="produkt.zakladni.asistence"></span>
+                </div>              
+                <h5 class="mt-2 vagl">{{ 'DETAIL.PARAMETRY' | translate }}</h5>
+                <div class="clearfix">
+                    <span class="text-muted small text-nowrap float-left">{{ 'DETAIL.ROZSIRENAASISTENCE' | translate }}</span>
+                    <span class="ml-4 text-nowrap float-right" [innerHTML]="produkt.parametry.rozsirenaAsistence | menaFormatInfo:produkt.parametry.rozsirenaAsistence.hodnota"></span>
+                </div>
+                <div class="clearfix">
+                    <span class="text-muted small text-nowrap float-left">{{ 'DETAIL.NAHRADNIVOZIDLO' | translate }}</span>
+                    <span class="ml-4 text-nowrap float-right" [innerHTML]="produkt.parametry.nahradniVozidlo | menaFormatInfo:produkt.parametry.nahradniVozidlo.hodnota"></span>
+                </div>
+                <div class="clearfix">
+                    <span class="text-muted small text-nowrap float-left">{{ 'DETAIL.PRAVNIASISTENCE' | translate }}</span>
+                    <span class="ml-4 text-nowrap float-right" [innerHTML]="produkt.parametry.pravniAsistence | menaFormatInfo:produkt.parametry.pravniAsistence.hodnota"></span>
+                </div>
+                <h5 class="mt-2 vagl">{{ 'DETAIL.DOPLNKOVA' | translate }}</h5>
+                <div class="clearfix">
+                    <span class="text-muted small text-nowrap float-left">{{ 'DETAIL.POJISTENISKEL' | translate }}</span>
+                    <span class="ml-4 text-nowrap float-right" [innerHTML]="produkt.parametry.pojisteniSkel | menaFormatInfo:produkt.parametry.pojisteniSkel.hodnota"></span>
+                </div>
+                <div class="clearfix">
+                    <span class="text-muted small text-nowrap float-left">{{ 'DETAIL.POJISTENIURAZU' | translate }}</span>
+                    <span class="ml-4 text-nowrap float-right" [innerHTML]="produkt.parametry.pojisteniUrazu | menaFormatInfo:produkt.parametry.pojisteniUrazu.hodnota"></span>
+                </div>
+                <div class="clearfix">
+                    <span class="text-muted small text-nowrap float-left">{{ 'DETAIL.POJISTENIZAVAZADEL' | translate }}</span>
+                    <span class="ml-4 text-nowrap float-right" [innerHTML]="produkt.parametry.pojisteniZavazadel | menaFormatInfo:produkt.parametry.pojisteniZavazadel.hodnota"></span>
+                </div>
+                <h5 class="mt-2 vagl">{{ 'DETAIL.PRIP_SKOD' | translate }}</h5>
+                <div class="clearfix">
+                    <span class="text-muted small text-nowrap float-left">{{ 'DETAIL.HAVARIE' | translate }}</span>
+                    <span class="ml-4 text-nowrap float-right" [innerHTML]="produkt.parametry.havarie | menaFormatInfo:produkt.parametry.havarie.hodnota"></span>
+                </div>
+                <div class="clearfix">
+                    <span class="text-muted small text-nowrap float-left">{{ 'DETAIL.ZIVEL' | translate }}</span>
+                    <span class="ml-4 text-nowrap float-right" [innerHTML]="produkt.parametry.zivel | menaFormatInfo:produkt.parametry.zivel.hodnota"></span>
+                </div>
+                <div class="clearfix">
+                    <span class="text-muted small text-nowrap float-left">{{ 'DETAIL.SRAZKASEZVIRETEM' | translate }}</span>
+                    <span class="ml-4 text-nowrap float-right" [innerHTML]="produkt.parametry.srazkaSeZviretem | menaFormatInfo:produkt.parametry.srazkaSeZviretem.hodnota"></span>
+                </div>
+                <div class="clearfix">
+                    <span class="text-muted small text-nowrap float-left">{{ 'DETAIL.POSKOZENIZVIRETEM' | translate }}</span>
+                    <span class="ml-4 text-nowrap float-right" [innerHTML]="produkt.parametry.poskozeniZviretem | menaFormatInfo:produkt.parametry.poskozeniZviretem.hodnota"></span>
+                </div>
+                <div class="clearfix">
+                    <span class="text-muted small text-nowrap float-left">{{ 'DETAIL.ODCIZENI' | translate }}</span>
+                    <span class="ml-4 text-nowrap float-right" [innerHTML]="produkt.parametry.odcizeni | menaFormatInfo:produkt.parametry.odcizeni.hodnota"></span>
+                </div>
+                <div class="clearfix">
+                    <span class="text-muted small text-nowrap float-left">{{ 'DETAIL.VANDALISMUS' | translate }}</span>
+                    <span class="ml-4 text-nowrap float-right" [innerHTML]="produkt.parametry.vandalismus | menaFormatInfo:produkt.parametry.vandalismus.hodnota"></span>
+                </div>
+                <div class="clearfix">
+                    <span class="text-muted small text-nowrap float-left">{{ 'DETAIL.VANDALISMUS' | translate }}</span>
+                    <span class="ml-4 text-nowrap float-right" [innerHTML]="produkt.parametry.vandalismus | menaFormatInfo:produkt.parametry.vandalismus.hodnota"></span>
+                </div>
+                               
+            </div>
+            <div class="card-footer">
+                <div class="clearfix">
+                    <span *ngIf="data['parametry']['platba'] === 'ROCNI'" [outerHTML]="'TEXTY.PLATBA.ROCNI' | translate"></span>
+                    <span *ngIf="data['parametry']['platba'] === 'POLOLETNI'" [outerHTML]="'TEXTY.PLATBA.POLOLETNI' | translate"></span>
+                    <span *ngIf="data['parametry']['platba'] === 'CTVRTLETNI'" [outerHTML]="'TEXTY.PLATBA.CTVRTLETNI' | translate"></span>
+                    <div class="cena vag" style="font-size:125%" [innerHTML]="produkt.ceny.lhutniPojistne | menaFormat"></div>
+                </div>
+                <a (click)="sjednatProdukt(produkt.id)" class="btn btn-success">{{ 'FORM.BUTTONS.SJEDNAT' | translate }}&nbsp;<i class="fa fa-chevron-right"></i></a>
+
+                <hr />
+                <a (click)="odebratProdukt(produkt.id)" class="btn btn-outline-secondary btn-sm"><i class="fas fa-times text-danger"></i> {{ 'SROVNANI.ODEBRAT' | translate }}</a>	
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ********** MODALS ********** -->
+
+<!-- Debug modal -->
+<div bsModal #debugModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Debug</h4>
+                <button type="button" class="close pull-right" (click)="debugModal.hide()" aria-label="Zavřít">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <pre>{{ produkty | json }}</pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Nabidka stažení modal-->
+<ng-template #nabidkaModal>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{ 'SROVNANI.MODAL.NABIDKA' | translate }}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div #container>
+            <span *ngIf="!nabModal.loaded">
+                <span class="fa fa-spinner fa-spin" role="status" aria-hidden="true"></span>{{ 'SROVNANI.MODAL.GENERATE' | translate }}
+            </span>
+            <span *ngIf="nabModal.loaded && !nabModal.status">{{ 'SROVNANI.MODAL.ERROR' | translate }}</span>
+            <div *ngIf="nabModal.loaded && nabModal.status">
+                <ul class="fa-ul">
+                    <li *ngFor="let dok of nabModal.docs">
+                        <a class="" href="{{ dok.url }}" target="_pdf_dok">
+                            <span class="fa-li"><i class="text-danger far fa-file-pdf"></i></span> {{ dok.nazev }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</ng-template>

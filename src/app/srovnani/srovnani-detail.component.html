@@ -1,0 +1,164 @@
+<app-prubeh [krok]="3"></app-prubeh>
+<alert></alert>
+
+<div class="row">
+    <div class="col order-1 order-md-1">
+        <a routerLink="/srovnani" class="btn btn-outline-secondary btn-sm float-left">
+            <i class="fa fa-chevron-left"></i> {{ 'DETAIL.BACK' | translate }}
+        </a>				
+    </div>
+    <div class="col-xs-12 col-md-auto order-3 order-md-2 text-center">
+        <h3 class="text-center mt-4">
+            <span class="">{{ produkt.pojistovna.nazev }} - {{ produkt.nazev }}</span>
+        </h3>
+    </div>
+    <div class="col order-2 order-md-3 text-right">			
+    </div>
+</div>
+
+<div class="row py-2 cleartfix">
+    <div class="col-3 order-1 col-md-2 order-md-1 align-self-center">
+        <div class="text-center align-self-center">
+            <img alt="Logo" style="max-width: 70px; width: 100%; height: 100%;"
+                [src]="produkt.pojistovna.logo ? 'https://admin.srovnavac.cz/storage/' + produkt.pojistovna.logo : ''" />
+        </div>
+    </div>
+    <div class="col-12 order-3 col-md-6 order-md-2 align-self-center">
+        <div class="row">
+            <div class="col">
+                <div>{{ 'DETAIL.LIMITYKRYTI' | translate }}</div>
+                <div>
+                    <span class="text-muted small">{{ 'DETAIL.SKODYNAMAJETKU' | translate }}</span>
+                    <span class="float-right" [innerHTML]="produkt.zakladni.skodyNaMajetku | menaFormat"></span>
+                </div>
+                <div>
+                    <span class="text-muted small">{{ 'DETAIL.SKODYNAZDRAVI' | translate }}</span>
+                    <span class="float-right" [innerHTML]="produkt.zakladni.skodyNaZdravi | menaFormat"></span>
+                </div>
+                <div>
+                    <span>{{ 'DETAIL.ASISTENCE' | translate }}</span>
+                    <span class="float-right" [innerHTML]="produkt.zakladni.asistence"></span>
+                </div>
+            </div>                   
+        </div>
+    </div>
+    <div class="col-9 order-2 col-md-4 order-md-3 align-self-center">
+        <div class="media float-right">
+            <div class="align-self-center mr-4 text-right">
+                <div class="text-muted small">
+                    <span *ngIf="data['parametry']['platba'] === 'ROCNI'" [outerHTML]="'TEXTY.PLATBA.ROCNI' | translate"></span>
+                    <span *ngIf="data['parametry']['platba'] === 'POLOLETNI'" [outerHTML]="'TEXTY.PLATBA.POLOLETNI' | translate"></span>
+                    <span *ngIf="data['parametry']['platba'] === 'CTVRTLETNI'" [outerHTML]="'TEXTY.PLATBA.CTVRTLETNI' | translate"></span>
+                </div>
+                <div class="cena vag" style="font-size:125%">
+                    <span [innerHTML]="produkt.ceny.lhutniPojistne | menaFormat"></span>
+                </div>
+            </div>
+            <div class="align-self-center">
+                <a (click)="sjednatProdukt(produkt.id)" class="btn btn-success">{{ 'FORM.BUTTONS.SJEDNAT' | translate }}&nbsp;<i class="fa fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col">
+        <span [outerHTML]="produkt.popis"></span>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col">
+        <ul *ngIf="produkt.tipy.length" class="fa-ul">
+            <li *ngFor="let tt of produkt.tipy">
+                <span [outerHTML]="tt | Tips"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<hr class="my-2" />
+
+<div class="row mb-2">
+    <div class="col-md-6">
+        <div class="mt-4">
+            <h5 class="mt-2 vagl">{{ 'DETAIL.PARAMETRY' | translate }}</h5>
+            <div class="clearfix">{{ 'DETAIL.ROZSIRENAASISTENCE' | translate }}:<span class="float-right" [innerHTML]="produkt.parametry.rozsirenaAsistence | menaFormatInfo:produkt.parametry.rozsirenaAsistence.hodnota"></span></div>
+            <div class="clearfix">{{ 'DETAIL.NAHRADNIVOZIDLO' | translate }}:<span class="float-right" [innerHTML]="produkt.parametry.nahradniVozidlo | menaFormatInfo:produkt.parametry.nahradniVozidlo.hodnota"></span></div>
+            <div class="clearfix">{{ 'DETAIL.PRAVNIASISTENCE' | translate }}:<span class="float-right" [innerHTML]="produkt.parametry.pravniAsistence | menaFormatInfo:produkt.parametry.pravniAsistence.hodnota"></span></div>
+            <h5 class="mt-2 vagl">{{ 'DETAIL.DOPLNKOVA' | translate }}</h5>
+            <div class="clearfix">{{ 'DETAIL.POJISTENISKEL' | translate }}<span class="float-right" [innerHTML]="produkt.parametry.pojisteniSkel | menaFormatInfo:produkt.parametry.pojisteniSkel.hodnota"></span></div>
+            <div class="clearfix">{{ 'DETAIL.POJISTENIURAZU' | translate }}<span class="float-right" [innerHTML]="produkt.parametry.pojisteniUrazu | menaFormatInfo:produkt.parametry.pojisteniUrazu.hodnota"></span></div>
+            <div class="clearfix">{{ 'DETAIL.POJISTENIZAVAZADEL' | translate }}<span class="float-right" [innerHTML]="produkt.parametry.pojisteniZavazadel | menaFormatInfo:produkt.parametry.pojisteniZavazadel.hodnota"></span></div>
+            <h5 class="mt-2 vagl">{{ 'DETAIL.PRIP_SKOD' | translate }}</h5>
+            <div class="clearfix">{{ 'DETAIL.HAVARIE' | translate }}<span class="float-right" [innerHTML]="produkt.parametry.havarie | menaFormatInfo:produkt.parametry.havarie.hodnota"></span></div>
+            <div class="clearfix">{{ 'DETAIL.ZIVEL' | translate }}<span class="float-right" [innerHTML]="produkt.parametry.zivel | menaFormatInfo:produkt.parametry.zivel.hodnota"></span></div>
+            <div class="clearfix">{{ 'DETAIL.SRAZKASEZVIRETEM' | translate }}<span class="float-right" [innerHTML]="produkt.parametry.srazkaSeZviretem | menaFormatInfo:produkt.parametry.srazkaSeZviretem.hodnota"></span></div>
+            <div class="clearfix">{{ 'DETAIL.POSKOZENIZVIRETEM' | translate }}<span class="float-right" [innerHTML]="produkt.parametry.poskozeniZviretem | menaFormatInfo:produkt.parametry.poskozeniZviretem.hodnota"></span></div>
+            <div class="clearfix">{{ 'DETAIL.ODCIZENI' | translate }}<span class="float-right" [innerHTML]="produkt.parametry.odcizeni | menaFormatInfo:produkt.parametry.odcizeni.hodnota"></span></div>
+            <div class="clearfix">{{ 'DETAIL.VANDALISMUS' | translate }}<span class="float-right" [innerHTML]="produkt.parametry.vandalismus | menaFormatInfo:produkt.parametry.vandalismus.hodnota"></span></div>                                    
+        </div>                                
+    </div>
+    <div class="offset-md-1 col-md-5">
+
+        <div *ngIf="produkt.dokumenty.length" class="">
+            <h5 class="vagl mt-4">{{ 'SROVNANI.DOKUMENTY' | translate }}</h5>
+            <ul *ngIf="produkt.dokumenty.length" class="fa-ul">
+                <li *ngFor="let dok of produkt.dokumenty">
+                    <a class="" href="{{ dok.url }}" target="_pdf_dok"><span class="fa-li" ><i class="text-danger far fa-file-pdf"></i></span> {{ dok.nazev }}</a>
+                </li>
+            </ul>
+        </div> 
+        <a (click)="stahniNabidku(nabidkaModal, produkt.id)" class="btn btn-outline-secondary btn-sm">
+            <i class="fas fa-print text-danger"></i>&nbsp;<span [innerHTML]="'DETAIL.NABIDKA' | translate"></span>
+        </a><br />
+        <a routerLink="/srovnani/uprava-produktu" class="btn btn-outline-secondary btn-sm my-2">
+            <i class="fas fa-sliders-h"></i>&nbsp;{{ 'DETAIL.NASTAVENIPRODUKTU' | translate }}
+        </a>
+    </div>                         
+</div>
+
+<!-- ********** MODALS ********** -->
+
+<!-- Debug modal -->
+<div bsModal #debugModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Debug</h4>
+                <button type="button" class="close pull-right" (click)="debugModal.hide()" aria-label="Zavřít">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <pre>{{ produkt | json }}</pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Nabidka stažení modal-->
+<ng-template #nabidkaModal>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{ 'SROVNANI.MODAL.NABIDKA' | translate }}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div #container>
+            <span *ngIf="!nabModal.loaded">
+                <span class="fa fa-spinner fa-spin" role="status" aria-hidden="true"></span>&nbsp;&nbsp;{{ 'SROVNANI.MODAL.GENERATE' | translate }}
+            </span>
+            <span *ngIf="nabModal.loaded && !nabModal.status">{{ 'SROVNANI.MODAL.ERROR' | translate }}</span>
+            <div *ngIf="nabModal.loaded && nabModal.status">
+                <ul class="fa-ul">
+                    <li *ngFor="let dok of nabModal.docs">
+                        <a class="" href="{{ dok.url }}" target="_pdf_dok">
+                            <span class="fa-li"><i class="text-danger far fa-file-pdf"></i></span> {{ dok.nazev }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</ng-template>

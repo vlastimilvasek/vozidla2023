@@ -1,0 +1,12 @@
+<div id="layoutHelper" [ngStyle]="{'display': layouthelper}" >
+  <div class="visible-xl text-center alert alert-success" role="alert">Rozlišení XL</div>
+  <div class="visible-lg text-center alert alert-info" role="alert">Rozlišení LG</div>
+  <div class="visible-md text-center alert alert-warning" role="alert">Rozlišení MD</div>
+  <div class="visible-sm text-center alert alert-primary" role="alert">Rozlišení SM</div>
+  <div class="visible-xs text-center alert alert-danger" role="alert">Rozlišení XS</div>
+</div>
+
+
+<div [@slideRightLeftAnimation]="prepareRoute(outlet)" style="min-height:300px" >
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>

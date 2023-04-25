@@ -1,0 +1,105 @@
+<app-prubeh [krok]="3"></app-prubeh>
+<alert></alert>
+
+<div class="row">
+    <div class="col order-1 order-md-1">			
+    </div>
+    <div class="col-xs-12 col-md-auto order-3 order-md-2 text-center">
+        <h3 class="text-center mt-4">
+            <span class="">{{ produkt.nazev }}</span>
+        </h3>
+    </div>
+    <div class="col order-2 order-md-3 text-right">			
+    </div>
+</div>
+
+<div class="row py-2 cleartfix">
+    <div class="col-3 order-1 col-md-2 order-md-1 align-self-center">
+        <div class="text-center align-self-center">
+            <img alt="Logo" style="max-width: 70px; width: 100%; height: 100%;"
+                [src]="produkt.pojistovna.logo ? 'https://admin.srovnavac.cz/storage/' + produkt.pojistovna.logo : ''" />
+        </div>
+    </div>
+    <div class="col-12 order-3 col-md-6 order-md-2 align-self-center">
+        <div class="row">
+            <div class="col">
+                <div>{{ 'DETAIL.LIMITYKRYTI' | translate }}</div>
+                <div>
+                    <span class="text-muted small">{{ 'DETAIL.SKODYNAMAJETKU' | translate }}</span>
+                    <span class="float-right" [innerHTML]="produkt.zakladni.skodyNaMajetku | menaFormat"></span>
+                </div>
+                <div>
+                    <span class="text-muted small">{{ 'DETAIL.SKODYNAZDRAVI' | translate }}</span>
+                    <span class="float-right" [innerHTML]="produkt.zakladni.skodyNaZdravi | menaFormat"></span>
+                </div>
+                <div>
+                    <span>{{ 'DETAIL.ASISTENCE' | translate }}</span>
+                    <span class="float-right" [innerHTML]="produkt.zakladni.asistence"></span>
+                </div>
+            </div>                   
+        </div>
+    </div>
+    <div class="col-9 order-2 col-md-4 order-md-3 align-self-center">
+        <div class="media float-right">
+            <div class="align-self-center mr-4 text-right">
+                <div class="text-muted small">
+                    <span *ngIf="data['parametry']['platba'] === 'ROCNI'" [outerHTML]="'TEXTY.PLATBA.ROCNI' | translate"></span>
+                    <span *ngIf="data['parametry']['platba'] === 'POLOLETNI'" [outerHTML]="'TEXTY.PLATBA.POLOLETNI' | translate"></span>
+                    <span *ngIf="data['parametry']['platba'] === 'CTVRTLETNI'" [outerHTML]="'TEXTY.PLATBA.CTVRTLETNI' | translate"></span>
+                </div>
+                <div class="cena vag" style="font-size:125%">
+                    <span [innerHTML]="produkt.ceny.lhutniPojistne | menaFormat"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col">
+        <span [outerHTML]="produkt.popis"></span>
+    </div>
+</div>
+
+<hr class="my-2" />
+
+<div class="row mb-2">
+    <div class="col">
+
+        <formly-form [model]="data"
+            [fields]="formlyFields"
+            [options]="formlyOptions"
+            [form]="formlyForm">
+        </formly-form>
+    
+        <div class="text-center mt-4" [hidden]="!formlyForm.valid">
+            <a routerLink="../detail" class="btn btn-outline-secondary">
+                <i class="fa fa-chevron-left"></i> {{ 'FORM.BUTTONS.ZPET' | translate }}
+            </a>	
+            <button type="submit" class="btn btn-success ml-3">
+                {{ 'PRODUKT.PREPOCITAT' | translate }}
+                &nbsp;<i class="fa fa-spinner fa-spin" *ngIf="formlyOptions.formState.recalculating === true"></i>
+            </button>
+        </div> 
+        
+    </div>                      
+</div>
+
+<!-- ********** MODALS ********** -->
+
+<!-- Debug modal -->
+<div bsModal #debugModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Debug</h4>
+                <button type="button" class="close pull-right" (click)="debugModal.hide()" aria-label="Zavřít">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <pre>{{ produkt | json }}</pre>
+            </div>
+        </div>
+    </div>
+</div>

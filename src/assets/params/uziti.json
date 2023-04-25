@@ -1,0 +1,10 @@
+[
+    { "value": 1, "label": "běžné" },
+    { "value": 2, "label": "vozidla taxislužby" },
+    { "value": 3, "label": "vozidla půjčoven určená k půjčování" },
+    { "value": 4, "label": "vozidla s právem přednostní jízdy" },
+    { "value": 5, "label": "vozidla pro přepravu nebezpeč.nákladů" },
+    { "value": 6, "label": "autoškola" },
+    { "value": 7, "label": "historické vozidlo" },
+    { "value": 8, "label": "veterán" }
+]

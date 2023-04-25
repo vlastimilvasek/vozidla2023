@@ -1,0 +1,29 @@
+{
+    "partneri": [
+      {
+        "id": "HVP",
+        "logo": "https://admin.srovnavac.cz/storage/images/loga_pojistovny/300/hvp.svg",
+        "nazev": "HVP",
+        "produkty": []
+      },
+      {
+        "id": "UNIQA",
+        "logo": "https://admin.srovnavac.cz/storage/images/loga_pojistovny/300/uniqa.svg",
+        "nazev": "Uniqa",
+        "produkty": []
+      },
+      {
+        "id": "DIRECT",
+        "logo": "https://admin.srovnavac.cz/storage/images/loga_pojistovny/300/direct.svg",
+        "nazev": "Direct",
+        "produkty": []
+      },
+      {
+        "id": "SLAVIA",
+        "logo": "https://admin.srovnavac.cz/storage/images/loga_pojistovny/300/slavia.svg",
+        "nazev": "Slávia",
+        "produkty": []
+      }
+    ]
+  }
+  

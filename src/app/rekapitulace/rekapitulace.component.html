@@ -1,0 +1,65 @@
+<app-prubeh [krok]="5"></app-prubeh>
+<alert></alert>
+
+<div class="row">
+    <div class="col order-1 order-md-1">
+        <a routerLink="/sjednani" class="btn btn-outline-secondary btn-sm float-left">
+            <i class="fa fa-chevron-left"></i> {{ 'REKAPITULACE.BACK' | translate }}
+        </a>
+    </div>
+    <div class="col-xs-12 col-md-auto order-3 order-md-2 text-center">
+        <h3 class="text-center mt-4">
+            <span class="">{{ 'REKAPITULACE.TITLE' | translate }}</span>
+        </h3>
+    </div>
+    <div class="col order-2 order-md-3 text-right">
+    </div>
+</div>
+
+<div class="row">
+    <!-- první sloupec -->
+    <div class="col">
+        <div class="row">
+            <div class="col-12 col-sm-3">
+                <h5 class="vagl">{{ 'OSOBA.POJISTNIK.LABEL' | translate }}</h5>
+            </div>
+            <div class="col-12 col-sm-9 row">
+                <div class="col-12">{{ data.pojistnik.jmeno }} {{ data.pojistnik.prijmeni }}</div>
+                <div class="col-12">{{ data.pojistnik.adresa.ulice }} {{ data.pojistnik.adresa.cp }}, {{
+                    data.pojistnik.adresa.psc }} {{ data.pojistnik.adresa.obec }}</div>
+                <div class="col-12"><strong><i class="fas fa-envelope"></i> {{ data.pojistnik.email }}</strong></div>
+                <div class="col-12">
+                    <i class="fas fa-phone"></i> {{ data.pojistnik.telefon | telefonFormat}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- první sloupec -->
+    <div class="col">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <h4 class="mt-4 vagl">{{ 'REKAPITULACE.PROHLASENI.TITLE' | translate }}</h4>
+        <div class="prohlaseni text-smaller" [innerHTML]="'REKAPITULACE.PROHLASENI.TEXT' | translate"></div>
+    </div>
+</div>
+
+<form [formGroup]="formlyForm" (ngSubmit)="onSubmit()">
+    <div class="mt-1 mb-5">
+        <div class="row">
+            <div class="col">
+
+            <formly-form [model]="data" [fields]="formlyFields" [options]="formlyOptions" [form]="formlyForm">
+            </formly-form>
+            <div class="text-center">
+                <button type="submit" class="btn btn-lg btn-success mb-4 mr-2">
+                    {{ 'FORM.BUTTONS.DALE' | translate }}
+                </button>
+            </div>
+
+            </div>
+        </div>
+    </div>
+</form>

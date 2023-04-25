@@ -1,0 +1,7 @@
+[
+    { "value": 1, "label": "benzín" },
+    { "value": 2, "label": "nafta" },
+    { "value": 3, "label": "plyn" },
+    { "value": 4, "label": "elektro" },
+    { "value": 9, "label": "jiné" }
+]

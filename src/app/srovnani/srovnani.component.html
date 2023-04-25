@@ -1,0 +1,293 @@
+<app-prubeh [krok]="3"></app-prubeh>
+<alert></alert>
+
+<div class="row">
+    <div class="col order-1 order-md-1">
+        <a routerLink="/rozsah" class="btn btn-outline-secondary btn-sm float-left">
+            <i class="fa fa-chevron-left"></i> {{ 'SROVNANI.BACK' | translate }}
+        </a>				
+    </div>
+    <div class="col-xs-12 col-md-auto order-3 order-md-2 text-center">
+        <h3 class="text-center mt-4">
+            <span [outerHTML]="'FORM.TABS.SROVNANI' | translate"></span>
+        </h3>
+    </div>
+    <div class="col order-2 order-md-3 text-right">
+        <div class="btn-group float-right" dropdown>
+            <button id="button-tools" dropdownToggle class="btn btn-outline-secondary btn-sm dropdown-toggle" aria-controls="dropdown-basic">
+                <i class="fas fa-cog"></i> <span class="caret"></span>
+            </button>
+            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu-right dropdown-menu" role="menu" aria-labelledby="button-basic">
+                <li role="menuitem"><a class="dropdown-item" (click)="shareModal.show()"><i class="fas fa-share-alt"></i> {{ 'FORM.BUTTONS.SDILENI' | translate }}</a></li>
+                <li role="menuitem"><a class="dropdown-item" (click)="emailModal.show()"><i class="fas fa-at"></i> {{ 'FORM.BUTTONS.EMAIL' | translate }}</a></li>
+            </ul>
+        </div>&nbsp;
+        <a routerLink="./produktu" class="btn btn-outline-secondary btn-sm" *ngIf="pocetPorovnani">
+            <i class="fa fa-balance-scale"></i> {{ pocetPorovnani }}
+        </a>&nbsp;		
+    </div>
+</div>
+
+<div class="rw">
+    <div class="card overflow-hidden mb-2" *ngFor="let partner of partneri; let i = index">
+        <div class="card-content">
+            <!-- 
+            <ng-container [ngTemplateOutlet]="(partner?.nacteno && partner?.produkty && partner?.produkty.length > 1) ? infoProdukt : shellProdukt"
+                [ngTemplateOutletContext]="{produkt:partner.produkty[0]}">
+            </ng-container>
+            -->
+            <ng-container *ngIf="!partner.nacteno" [ngTemplateOutlet]="shellProdukt"
+                [ngTemplateOutletContext]="{partner:partner}">
+            </ng-container>            
+            <ng-container *ngIf="partner?.nacteno && partner?.produkty && partner?.produkty.length > 0">
+                <ng-container *ngFor="let item of partner?.produkty; let j = index">
+                    <div *ngIf="j == 0">
+                        <ng-container [ngTemplateOutlet]="infoProdukt"
+                            [ngTemplateOutletContext]="{produkt:item}">
+                        </ng-container>
+                    </div>                    
+                    <div *ngIf="j > 0" class="border-top" [hidden]="!partneriDetail[item.pojistovna.id]">
+                        <ng-container [ngTemplateOutlet]="infoProdukt"
+                            [ngTemplateOutletContext]="{produkt:item}">
+                        </ng-container>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+        <div class="card-footer py-1 px-2 text-muted">
+            <div class="row" *ngIf="!partner.nazev">{{ partner.nazev }}</div>
+            <div class="row" *ngIf="partner.nacteno">
+                <div *ngIf="partner?.produkty && partner.produkty.length === 1" class="align-self-center col small">
+                    <span [innerHTML]="'SROVNANI.NABIDKA.PATICKA1' | translate:{pocet: partner.produkty.length, minCena: partner.minCena | menaFormat}"></span>
+                </div>
+                <div *ngIf="partner?.produkty && partner.produkty.length > 1" class="align-self-center col small">
+                    <span *ngIf="partner.produkty.length <= 4" [innerHTML]="'SROVNANI.NABIDKA.PATICKA2-4' | translate:{pocet: partner.produkty.length, minCena: partner.minCena | menaFormat}"></span>
+                    <span *ngIf="partner.produkty.length >= 5" [innerHTML]="'SROVNANI.NABIDKA.PATICKA5+' | translate:{pocet: partner.produkty.length, minCena: partner.minCena | menaFormat}"></span>
+                    <a (click)="partneriDetail[partner.id] = !partneriDetail[partner.id];" class="px-2 font-weight-bolder">
+                        <span *ngIf="!partneriDetail[partner.id]">{{ 'Zobrazit' | translate }}&nbsp;<i class="fa fa-chevron-right"></i></span>
+                        <span *ngIf="partneriDetail[partner.id]">{{ 'Skrýt' | translate }}&nbsp;<i class="fa fa-chevron-up"></i></span>
+                    </a>
+                </div>
+                <div *ngIf="partner?.produkty && partner.produkty.length > 1" class="col text-right font-weight-bolder small">
+                    <a (click)="porovnaniProduktu(partner.id)">
+                        <i class="fa fa-balance-scale"></i>
+                        {{ 'SROVNANI.POROVNAT' | translate }}
+                    </a>
+                </div>
+            </div>
+            <div class="row" *ngIf="!partner.nacteno">
+                <div class="col"><span class="loader"></span></div>
+                <div class="col"><small>Načítání nabídek</small></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #shellProdukt let-partner='partner'>
+    <div class="card-body py-2 px-3 cleartfix">
+        <div class="media align-items-stretch">
+            <div class="align-self-center mr-4" style="width:60px">
+                <div [ngClass]="{ 'image-shell': !partner?.logo }" class="text-center align-self-center">
+                    <img [src]="partner?.logo ? 'https://admin.srovnavac.cz/storage/' + partner?.logo : ''"
+                    alt="Logo" style="max-width: 70px; width: 100%; height: 100%;" />
+                </div>
+            </div>
+            <div class="media-body align-self-center">
+                <div class="row">
+                    <div class="col">
+                        <div [ngClass]="{ 'text-loaded': partner?.nazev }" style="margin-top: 0px; min-height: 25px;" class="text-shell">
+                            {{ partner?.nazev }}
+                        </div>
+                        <div class="text-shell" style="margin-top: 0px; min-height: 25px;"></div>
+                    </div>
+                    <div class="col hidden-xs">
+                        <div class="text-muted"><small>krytí POV</small></div>
+                        <div class="text-shell" style="margin-top: 0px; margin-right: 10px; min-height: 25px;"></div>
+                    </div>
+                    <div class="col hidden-xs">
+                        <div class="text-shell" style="margin-top: 0px; margin-right: 10px; min-height: 25px;"></div>
+                        <div class="text-shell" style="margin-top: 0px; margin-right: 10px; min-height: 25px;"></div>
+                    </div>                            
+                </div>
+            </div>
+            <div class="align-self-center mr-4 text-right">
+                <div class="text-muted"><small>cena</small></div>
+                <div class="text-shell" style="margin-top: 0px; min-height: 25px;">mistonacenu</div>
+            </div>
+            <div class="align-self-center">
+                <button type="submit" class="btn btn-success" [disabled]="!partner?.nazev">
+                    {{ 'FORM.BUTTONS.SJEDNAT' | translate }}&nbsp;<i class="fa fa-chevron-right"></i>
+                </button>                        
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #infoProdukt let-produkt='produkt'>
+    <div class="card-body py-2 px-3 cleartfix">
+        <div class="media align-items-stretch">
+            <div class="align-self-center mr-4" style="width:60px">
+                <div class="text-center align-self-center">
+                    <img alt="Logo" style="max-width: 70px; width: 100%; height: 100%;"
+                        [src]="produkt.pojistovna.logo ? 'https://admin.srovnavac.cz/storage/' + produkt.pojistovna.logo : ''" />
+                </div>
+            </div>
+            <div class="media-body align-self-center">
+                <div class="row">
+                    <div class="col">
+                        <div class="text-muted">
+                            {{ produkt.pojistovna.nazev }}
+                        </div>
+                        <div class="vag">
+                            {{ produkt.nazev }}
+                        </div>
+                    </div>
+                    <div class="col hidden-xs">
+                        <div class="text-muted"><small>krytí POV</small></div>
+                        <div class="vag">
+                            <span [innerHTML]="produkt.zakladni.skodyNaMajetku | menaFormat"></span>
+                        </div>
+                    </div>
+                    <div class="col hidden-xs">
+                        <div class="">
+                            <a (click)="detailProduktu(produkt.id)">
+                                <i class="fas fa-search"></i>
+                                {{ 'SROVNANI.INFO.TITLE' | translate }}
+                            </a><br />
+                            <a (click)="porovnatProdukt(produkt.id)">
+                                <i class="far fa-plus-square"></i>
+                                {{ 'SROVNANI.POROVNAT' | translate }}
+                            </a>
+                            <!--<a (click)="stahniNabidku(nabidkaModal, produkt.id)" class="">  
+                                <span [innerHTML]="'SROVNANI.STAHNINABIDKU' | translate"></span>
+                            </a >-->
+                        </div>
+                    </div>                     
+                </div>
+            </div>
+            <div class="align-self-center mr-4 text-right">
+                <div class="text-muted small">
+                    <span *ngIf="data['parametry']['platba'] === 'ROCNI'" [outerHTML]="'TEXTY.PLATBA.ROCNI' | translate"></span>
+                    <span *ngIf="data['parametry']['platba'] === 'POLOLETNI'" [outerHTML]="'TEXTY.PLATBA.POLOLETNI' | translate"></span>
+                    <span *ngIf="data['parametry']['platba'] === 'CTVRTLETNI'" [outerHTML]="'TEXTY.PLATBA.CTVRTLETNI' | translate"></span>
+                </div>
+                <div class="cena vag" style="font-size:120%">
+                    <span [innerHTML]="produkt.ceny.lhutniPojistne | menaFormat"></span>
+                </div>
+            </div>
+            <div class="align-self-center">
+                <a (click)="sjednatProdukt(produkt.id)" class="btn btn-success">{{ 'FORM.BUTTONS.SJEDNAT' | translate }}&nbsp;<i class="fa fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<!-- <pre>{{ partneri | json }}</pre> <pre>{{ data | json }}</pre> -->
+
+<!-- ********** MODALS ********** -->
+
+<!-- Debug modal -->
+<div bsModal #debugModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Debug</h4>
+                <button type="button" class="close pull-right" (click)="debugModal.hide()" aria-label="Zavřít">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <pre>{{ partneri | json }}</pre>                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Share modal-->
+<div bsModal #shareModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title float-left">{{ 'MODAL.SDILENI.TITLE' | translate }}</h4>
+                <button type="button" class="close float-right" (click)="shareModal.hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-2 mt-2">
+                    <input type="text" class="form-control" placeholder="{{ 'MODAL.SDILENI.PLACEHOLDER' | translate }}"
+                        value="{{ url }}">
+                </div>
+                <div [innerHtml]="'MODAL.SDILENI.TEXT' | translate"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Email modal-->
+<div bsModal #emailModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title float-left">{{ 'MODAL.EMAIL.TITLE' | translate }}</h4>
+                <button type="button" class="close float-right" (click)="emailModal.hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #kalk_email="ngForm" (ngSubmit)="emailKalkulace(kalk_email);" novalidate
+                    [class.submitted]="kalk_email.submitted">
+                    <div class="input-group mb-2 mt-2">
+                        <input type="text" class="form-control"
+                            placeholder="{{ 'MODAL.EMAIL.PLACEHOLDER' | translate }}" [(ngModel)]="data.email"
+                            id="email" name="email" email required
+                            [attr.disabled]="kalk_email.submitted && kalk_email.valid ? '' : null" #Memail="ngModel"
+                            aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-success"
+                                [attr.disabled]="kalk_email.submitted && kalk_email.valid ? '' : null" type="submit"
+                                id="button-addon2">
+                                {{ 'MODAL.EMAIL.SEND' | translate }}
+                            </button>
+                        </div>
+                    </div>
+                    <small [hidden]="Memail.valid || (Memail.pristine && !kalk_email.submitted)" class="text-danger">
+                        {{ 'FORM.VALIDATION.EMAIL' | translate }}
+                    </small>
+                    <i class="fa fa-spinner fa-spin" *ngIf="layout.kalkulaceAktivni === true"></i>
+                    <div *ngIf="layout.emailKalkulaceOdeslan" class="alert alert-success" role="alert">
+                        {{ 'MODAL.EMAIL.SENT' | translate }}
+                    </div>
+                </form>
+                <div [innerHtml]="'MODAL.EMAIL.TEXT' | translate"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Nabidka stažení modal-->
+<ng-template #nabidkaModal>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{ 'SROVNANI.MODAL.NABIDKA' | translate }}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div #container>
+            <span *ngIf="!nabModal.loaded">
+                <span class="fa fa-spinner fa-spin" role="status" aria-hidden="true"></span>{{ 'SROVNANI.MODAL.GENERATE' | translate }}
+            </span>
+            <span *ngIf="nabModal.loaded && !nabModal.status">{{ 'SROVNANI.MODAL.ERROR' | translate }}</span>
+            <div *ngIf="nabModal.loaded && nabModal.status">
+                <ul class="fa-ul">
+                    <li *ngFor="let dok of nabModal.docs">
+                        <a class="" href="{{ dok.url }}" target="_pdf_dok">
+                            <span class="fa-li"><i class="text-danger far fa-file-pdf"></i></span> {{ dok.nazev }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</ng-template>

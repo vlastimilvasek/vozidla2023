@@ -1,0 +1,49 @@
+<div *ngIf="valid">
+  <div class="row partner pt-3 pb-5 align-items-center">
+    <div class="col-auto">
+      <i style="float: left;" class="fa-4x fa-fw fas text-success fa-check"></i>
+    </div>
+    <div class="col">
+      <h3 class="vagl card-title">{{ 'ZAVER.PODEKOVANI.TITLE' | translate }}</h3>
+    </div>
+  </div>
+  
+  <div *ngIf="loading">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="progress mb-4" style="height: 3px;">
+          <div class="progress-bar bg-success" role="progressbar" [style.width.%]="progress" aria-valuemin="0"
+            aria-valuemax="100"></div>
+        </div>
+        <div class="mt-2 d-flex justify-content-center">
+          <p [innerHTML]="'ZAVER.NACITANI' | translate"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="!loading">
+  
+    <!--  poptavka ulozena  -->
+    <div *ngIf="sjednani.status == 1">
+      <div class="mx-auto mb-3">
+        <div class="py-3 align-items-center">
+          <div class="col">
+            <p [innerHTML]="'ZAVER.OK.TEXT' | translate:{email: data.pojistnik.email}"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!--   nějaká chybka  -->
+    <div *ngIf="sjednani.status != 1">
+      <div class="mx-auto mb-3">
+        <div class="py-3 align-items-center">
+          <div class="col">
+            <p [innerHTML]="'ZAVER.CHYBA.TEXT' | translate:{email: data.pojistnik.email}"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

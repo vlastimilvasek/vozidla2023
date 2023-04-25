@@ -1,0 +1,157 @@
+<h2 class="text-center align-self-center">Srovnání nabídek</h2>
+
+<div class="rw">
+  <div
+    class="card overflow-hidden mb-2"
+    *ngFor="let partner of partneri; let i = index"
+  >
+    <div class="card-content">
+      <div class="card-body py-2 px-3 cleartfix">
+        <div class="media align-items-stretch">
+          <div class="align-self-center mr-4" style="width:70px">
+            <div
+              [ngClass]="{ 'image-shell': !partner?.logo }"
+              class="text-center align-self-center"
+            >
+              <img
+                [src]="partner?.logo"
+                alt="Logo"
+                style="max-width: 70px; width: 100%; height: 100%;"
+              />
+            </div>
+          </div>
+          <div class="media-body align-self-center">
+            <div class="row">
+              <div class="col">
+                <div
+                  [ngClass]="{ 'text-loaded': partner?.nazev }"
+                  style="margin-top: 0px; min-height: 25px;"
+                  class="text-shell"
+                >
+                  {{ partner?.nazev }}
+                </div>
+                <div
+                  [ngClass]="{
+                    'text-loaded': partner?.produkty && partner?.produkty.length
+                  }"
+                  style="margin-top: 0px; min-height: 25px;"
+                  class="text-shell vag"
+                >
+                <span *ngIf="partner?.produkty && partner?.produkty.length">
+                    {{ partner.produkty[0].nazev }}
+                </span>
+                </div>
+              </div>
+              <div class="col hidden-xs">
+                <div class="text-muted"><small>krytí POV</small></div>
+                <div
+                  [ngClass]="{
+                    'text-loaded': partner?.produkty && partner?.produkty.length
+                  }"
+                  style="margin-top: 0px; margin-right: 10px; min-height: 25px;"
+                  class="text-shell vag"
+                >
+                <span *ngIf="partner?.produkty && partner?.produkty.length">
+                    {{ partner.produkty[0].zakladni.skodyNaMajetku }}
+                </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="align-self-center mr-4 text-right">
+            <div class="text-muted"><small>ročně</small></div>
+            <div
+              [ngClass]="{
+                'text-loaded': partner?.produkty && partner?.produkty.length
+              }"
+              style="margin-top: 0px; min-height: 25px;"
+              class="text-shell cena vag"
+            >
+              <span *ngIf="partner?.produkty && partner?.produkty.length">
+                {{ partner.produkty[0].ceny.lhutniPojistne }}
+              </span>
+            </div>
+          </div>
+          <div class="align-self-center">
+            <a
+              href="#"
+              [ngClass]="{ disabled: !partner?.nazev }"
+              class="btn btn-success"
+              >Sjednat</a
+            >
+          </div>
+        </div>
+      </div>
+      <div *ngIf="partner.nacteno && partner?.produkty.length > 1">
+        <div *ngFor="let item of partner?.produkty; let j = index">
+            <ng-container *ngIf="j > 0"
+                [ngTemplateOutlet]="dalsiProdukt"
+                [ngTemplateOutletContext]="{produkt:item}">
+            </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer py-1 px-2 text-muted">
+      <div
+        class="row"
+        *ngIf="partner?.produkty && partner?.produkty.length"
+      >
+        <div class="col">
+            <span *ngIf="partner?.produkty && partner?.produkty.length">
+                <small>{{ partner.produkty.length }} nabídky od {{ partner.minCena }}</small>
+            </span>
+        </div>
+        <div class="col text-right"></div>
+      </div>
+      <div class="d-flex flex-row-reverse" *ngIf="!(partner?.produkty && partner?.produkty.length)">
+        <div class="pl-4">
+          <span class="loader-text"><small>Načítání nabídek</small></span>
+        </div>
+        <div class="loader-wrapper"><span class="loader"></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #dalsiProdukt let-produkt='produkt'>
+<div class="card-body py-2 px-3 cleartfix border-top" [hidden]="!produkt.top">
+    <div class="media align-items-stretch">
+        <div class="align-self-center mr-4" style="width:70px">
+            <div class="text-center align-self-center">
+                <img alt="Logo" style="max-width: 70px; width: 100%; height: 100%;"
+                    [src]="'https://admin.srovnavac.cz/storage/' + produkt.pojistovna.logo"
+                />
+            </div>
+        </div>
+        <div class="media-body align-self-center">
+            <div class="row">
+                <div class="col">
+                    <div class="text-muted">
+                        {{ produkt.pojistovna.nazev }}
+                    </div>
+                    <div class="vag">
+                        {{ produkt.nazev }}
+                    </div>
+                </div>
+                <div class="col hidden-xs">
+                    <div class="text-muted"><small>krytí POV</small></div>
+                    <div class="vag">
+                        {{ produkt.zakladni.skodyNaMajetku }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="align-self-center mr-4 text-right">
+            <div class="text-muted"><small>ročně</small></div>
+            <div class="cena vag">
+                {{ produkt.ceny.lhutniPojistne }}
+            </div>
+        </div>
+        <div class="align-self-center">
+            <a href="#" class="btn btn-success">Sjednat</a>
+        </div>
+    </div>
+</div>
+</ng-template>
+
+<pre>{{ partneri | json }}</pre>

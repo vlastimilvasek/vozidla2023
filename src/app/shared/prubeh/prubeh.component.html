@@ -1,0 +1,32 @@
+<ul id="stepTabs" class="nav nav-justified nav-pills">
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/zadani" routerLinkActive="active">
+            <span class="nav-desc">{{ 'FORM.TABS.ZADANI' | translate }}</span>
+			<span class="nav-number">1</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/rozsah" routerLinkActive="active" [class.disabled]="krok < 2 ? true: null">
+            <span class="nav-desc" [innerHTML]="'FORM.TABS.PARAMETRY' | translate"></span>
+			<span class="nav-number">2</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/srovnani" routerLinkActive="active" [class.disabled]="krok < 3 ? true: null">
+            <span class="nav-desc" [innerHTML]="'FORM.TABS.SROVNANI' | translate"></span>
+			<span class="nav-number">3</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/sjednani" routerLinkActive="active" [class.disabled]="krok < 4 ? true: null">
+            <span class="nav-desc" [innerHTML]="'FORM.TABS.SJEDNANI' | translate"></span>
+			<span class="nav-number">4</span>
+        </a>
+    </li>    
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/shrnuti" routerLinkActive="active" [class.disabled]="krok < 5 ? null: null">
+            <span class="nav-desc" [innerHTML]="'FORM.TABS.SHRNUTI' | translate"></span>
+			<span class="nav-number">5</span>
+        </a>
+    </li>
+</ul>

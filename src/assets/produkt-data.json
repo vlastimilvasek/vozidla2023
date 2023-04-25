@@ -1,0 +1,1161 @@
+{
+  "CPP": {
+    "vypocet": {
+      "pojisteniId": "VOZIDLA",
+      "pojistovnaId": "CPP",
+      "ceny": {
+        "CPP_SPOROPOVCR": {
+          "povPojistne": 4634,
+          "havPojistne": null,
+          "extraPojistne": 0,
+          "rocniPojistne": 4634,
+          "lhutniPojistne": 4634,
+          "platba": "ROCNI",
+          "extra": [],
+          "detail": null
+        },
+        "CPP_SPOROPOV": {
+          "povPojistne": 4861,
+          "havPojistne": null,
+          "extraPojistne": 0,
+          "rocniPojistne": 4861,
+          "lhutniPojistne": 4861,
+          "platba": "ROCNI",
+          "extra": [],
+          "detail": null
+        },
+        "CPP_SPECIALPOV": {
+          "povPojistne": 5035,
+          "havPojistne": null,
+          "extraPojistne": 0,
+          "rocniPojistne": 5035,
+          "lhutniPojistne": 5035,
+          "platba": "ROCNI",
+          "extra": [],
+          "detail": null
+        },
+        "CPP_SUPERPOV": {
+          "povPojistne": 6557,
+          "havPojistne": null,
+          "extraPojistne": 0,
+          "rocniPojistne": 6557,
+          "lhutniPojistne": 6557,
+          "platba": "ROCNI",
+          "extra": [],
+          "detail": null
+        }
+      },
+      "produkty": [
+        {
+          "id": "CPP_SPECIALPOV",
+          "nazev": "SPECIÁLPOV",
+          "pojisteniId": "VOZIDLA",
+          "pojisteniKategorieId": "POV",
+          "pojistovna": {
+            "id": "CPP",
+            "nazev": "ČPP",
+            "logo": "images/loga_pojistovny/300/cpp.svg",
+            "logoHorizontal": "images/loga_pojistovny/horizontalni/cpp.svg"
+          },
+          "popis": null,
+          "zakladni": {
+            "skodyNaMajetku": 100000000,
+            "skodyNaZdravi": 100000000,
+            "asistence": "<div>Standard</div>"
+          },
+          "parametry": {
+            "povinneRuceni": {
+              "typ": "RADIO",
+              "hodnota": "1"
+            },
+            "rozsirenaAsistence": {
+              "typ": "LIST",
+              "hodnota": "0"
+            },
+            "pravniAsistence": {
+              "typ": "RADIO",
+              "hodnota": "-1"
+            },
+            "nahradniVozidlo": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniSkel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniUrazu": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniZavazadel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "srazkaSeZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "poskozeniZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "zivel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "odcizeni": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "vandalismus": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "havarie": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "gap": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "spoluucast": {
+              "typ": "LIST",
+              "hodnota": "-1"
+            }
+          },
+          "dokumenty": [
+            {
+              "nazev": "Pojistné podmínky Autopojištění Combi Plus IV 1/21",
+              "url": "dokumenty/pojisteni-vozidel/cpp/pp-acp-iv_1_21.pdf"
+            },
+            {
+              "nazev": "Asistenční služby",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200172_tabulka_acp_iv_a_pluszaklad_02.pdf"
+            },
+            {
+              "nazev": "IPID - Pojištění vozidel",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200001_ipid-acp_iv_02.pdf"
+            },
+            {
+              "nazev": "Informace pro zájemce o pojištění",
+              "url": "dokumenty/pojisteni-vozidel/cpp/ipzop_acp_10_2020.pdf"
+            }
+          ],
+          "tipy": [],
+          "extra": [],
+          "top": false
+        },
+        {
+          "id": "CPP_SPOROPOV",
+          "nazev": "SPOROPOV",
+          "pojisteniId": "VOZIDLA",
+          "pojisteniKategorieId": "POV",
+          "pojistovna": {
+            "id": "CPP",
+            "nazev": "ČPP",
+            "logo": "images/loga_pojistovny/300/cpp.svg",
+            "logoHorizontal": "images/loga_pojistovny/horizontalni/cpp.svg"
+          },
+          "popis": null,
+          "zakladni": {
+            "skodyNaMajetku": 50000000,
+            "skodyNaZdravi": 50000000,
+            "asistence": "<div>Sporo</div>"
+          },
+          "parametry": {
+            "povinneRuceni": {
+              "typ": "RADIO",
+              "hodnota": "1"
+            },
+            "rozsirenaAsistence": {
+              "typ": "LIST",
+              "hodnota": "0"
+            },
+            "pravniAsistence": {
+              "typ": "RADIO",
+              "hodnota": "-1"
+            },
+            "nahradniVozidlo": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniSkel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniUrazu": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniZavazadel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "srazkaSeZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "poskozeniZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "zivel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "odcizeni": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "vandalismus": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "havarie": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "gap": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "spoluucast": {
+              "typ": "LIST",
+              "hodnota": "-1"
+            }
+          },
+          "dokumenty": [
+            {
+              "nazev": "Pojistné podmínky Autopojištění Combi Plus IV 1/21",
+              "url": "dokumenty/pojisteni-vozidel/cpp/pp-acp-iv_1_21.pdf"
+            },
+            {
+              "nazev": "Asistenční služby",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200172_tabulka_acp_iv_a_pluszaklad_02.pdf"
+            },
+            {
+              "nazev": "IPID - Pojištění vozidel",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200001_ipid-acp_iv_02.pdf"
+            },
+            {
+              "nazev": "Informace pro zájemce o pojištění",
+              "url": "dokumenty/pojisteni-vozidel/cpp/ipzop_acp_10_2020.pdf"
+            }
+          ],
+          "tipy": [],
+          "extra": [],
+          "top": false
+        },
+        {
+          "id": "CPP_SPOROPOVCR",
+          "nazev": "SPOROPOV ČR",
+          "pojisteniId": "VOZIDLA",
+          "pojisteniKategorieId": "POV",
+          "pojistovna": {
+            "id": "CPP",
+            "nazev": "ČPP",
+            "logo": "images/loga_pojistovny/300/cpp.svg",
+            "logoHorizontal": "images/loga_pojistovny/horizontalni/cpp.svg"
+          },
+          "popis": null,
+          "zakladni": {
+            "skodyNaMajetku": 50000000,
+            "skodyNaZdravi": 50000000,
+            "asistence": "<div>Sporo</div>"
+          },
+          "parametry": {
+            "povinneRuceni": {
+              "typ": "RADIO",
+              "hodnota": "1"
+            },
+            "rozsirenaAsistence": {
+              "typ": "LIST",
+              "hodnota": "0"
+            },
+            "pravniAsistence": {
+              "typ": "RADIO",
+              "hodnota": "-1"
+            },
+            "nahradniVozidlo": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniSkel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniUrazu": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniZavazadel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "srazkaSeZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "poskozeniZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "zivel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "odcizeni": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "vandalismus": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "havarie": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "gap": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "spoluucast": {
+              "typ": "LIST",
+              "hodnota": "-1"
+            }
+          },
+          "dokumenty": [
+            {
+              "nazev": "Pojistné podmínky Autopojištění Combi Plus IV 1/21",
+              "url": "dokumenty/pojisteni-vozidel/cpp/pp-acp-iv_1_21.pdf"
+            },
+            {
+              "nazev": "Asistenční služby",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200172_tabulka_acp_iv_a_pluszaklad_02.pdf"
+            },
+            {
+              "nazev": "IPID - Pojištění vozidel",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200001_ipid-acp_iv_02.pdf"
+            },
+            {
+              "nazev": "Informace pro zájemce o pojištění",
+              "url": "dokumenty/pojisteni-vozidel/cpp/ipzop_acp_10_2020.pdf"
+            }
+          ],
+          "tipy": [
+            {
+              "typ": "MINUS",
+              "text": "Spoluúčast při nehodě v zahraničí"
+            }
+          ],
+          "extra": [],
+          "top": false
+        },
+        {
+          "id": "CPP_SUPERPOV",
+          "nazev": "SUPERPOV",
+          "pojisteniId": "VOZIDLA",
+          "pojisteniKategorieId": "POV",
+          "pojistovna": {
+            "id": "CPP",
+            "nazev": "ČPP",
+            "logo": "images/loga_pojistovny/300/cpp.svg",
+            "logoHorizontal": "images/loga_pojistovny/horizontalni/cpp.svg"
+          },
+          "popis": null,
+          "zakladni": {
+            "skodyNaMajetku": 200000000,
+            "skodyNaZdravi": 200000000,
+            "asistence": "<div>Standard</div>"
+          },
+          "parametry": {
+            "povinneRuceni": {
+              "typ": "RADIO",
+              "hodnota": "1"
+            },
+            "rozsirenaAsistence": {
+              "typ": "LIST",
+              "hodnota": "0"
+            },
+            "pravniAsistence": {
+              "typ": "RADIO",
+              "hodnota": "-1"
+            },
+            "nahradniVozidlo": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniSkel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniUrazu": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniZavazadel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "srazkaSeZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "poskozeniZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "zivel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "odcizeni": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "vandalismus": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "havarie": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "gap": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "spoluucast": {
+              "typ": "LIST",
+              "hodnota": "-1"
+            }
+          },
+          "dokumenty": [
+            {
+              "nazev": "Pojistné podmínky Autopojištění Combi Plus IV 1/21",
+              "url": "dokumenty/pojisteni-vozidel/cpp/pp-acp-iv_1_21.pdf"
+            },
+            {
+              "nazev": "Asistenční služby",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200172_tabulka_acp_iv_a_pluszaklad_02.pdf"
+            },
+            {
+              "nazev": "IPID - Pojištění vozidel",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200001_ipid-acp_iv_02.pdf"
+            },
+            {
+              "nazev": "Informace pro zájemce o pojištění",
+              "url": "dokumenty/pojisteni-vozidel/cpp/ipzop_acp_10_2020.pdf"
+            }
+          ],
+          "tipy": [],
+          "extra": [],
+          "top": false
+        }
+      ],
+      "pocet": 4
+    }
+  },
+  "CSOB": {
+    "vypocet": {
+      "pojisteniId": "VOZIDLA",
+      "pojistovnaId": "CSOB",
+      "ceny": {
+        "CSOB_SPOROPOV": {
+          "povPojistne": 4861,
+          "havPojistne": null,
+          "extraPojistne": 0,
+          "rocniPojistne": 4861,
+          "lhutniPojistne": 4861,
+          "platba": "ROCNI",
+          "extra": [],
+          "detail": null
+        },
+        "CSOB_SPECIALPOV": {
+          "povPojistne": 5035,
+          "havPojistne": null,
+          "extraPojistne": 0,
+          "rocniPojistne": 5035,
+          "lhutniPojistne": 5035,
+          "platba": "ROCNI",
+          "extra": [],
+          "detail": null
+        },
+        "CSOB_SUPERPOV": {
+          "povPojistne": 6557,
+          "havPojistne": null,
+          "extraPojistne": 0,
+          "rocniPojistne": 6557,
+          "lhutniPojistne": 6557,
+          "platba": "ROCNI",
+          "extra": [],
+          "detail": null
+        }
+      },
+      "produkty": [
+        {
+          "id": "CSOB_SPECIALPOV",
+          "nazev": "SPECIÁLPOV",
+          "pojisteniId": "VOZIDLA",
+          "pojisteniKategorieId": "POV",
+          "pojistovna": {
+            "id": "CSOB",
+            "nazev": "ČPP",
+            "logo": "images/loga_pojistovny/300/cpp.svg",
+            "logoHorizontal": "images/loga_pojistovny/horizontalni/cpp.svg"
+          },
+          "popis": null,
+          "zakladni": {
+            "skodyNaMajetku": 100000000,
+            "skodyNaZdravi": 100000000,
+            "asistence": "<div>Standard</div>"
+          },
+          "parametry": {
+            "povinneRuceni": {
+              "typ": "RADIO",
+              "hodnota": "1"
+            },
+            "rozsirenaAsistence": {
+              "typ": "LIST",
+              "hodnota": "0"
+            },
+            "pravniAsistence": {
+              "typ": "RADIO",
+              "hodnota": "-1"
+            },
+            "nahradniVozidlo": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniSkel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniUrazu": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniZavazadel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "srazkaSeZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "poskozeniZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "zivel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "odcizeni": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "vandalismus": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "havarie": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "gap": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "spoluucast": {
+              "typ": "LIST",
+              "hodnota": "-1"
+            }
+          },
+          "dokumenty": [
+            {
+              "nazev": "Pojistné podmínky Autopojištění Combi Plus IV 1/21",
+              "url": "dokumenty/pojisteni-vozidel/cpp/pp-acp-iv_1_21.pdf"
+            },
+            {
+              "nazev": "Asistenční služby",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200172_tabulka_acp_iv_a_pluszaklad_02.pdf"
+            },
+            {
+              "nazev": "IPID - Pojištění vozidel",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200001_ipid-acp_iv_02.pdf"
+            },
+            {
+              "nazev": "Informace pro zájemce o pojištění",
+              "url": "dokumenty/pojisteni-vozidel/cpp/ipzop_acp_10_2020.pdf"
+            }
+          ],
+          "tipy": [],
+          "extra": [],
+          "top": false
+        },
+        {
+          "id": "CSOB_SPOROPOV",
+          "nazev": "SPOROPOV",
+          "pojisteniId": "VOZIDLA",
+          "pojisteniKategorieId": "POV",
+          "pojistovna": {
+            "id": "CSOB",
+            "nazev": "ČPP",
+            "logo": "images/loga_pojistovny/300/cpp.svg",
+            "logoHorizontal": "images/loga_pojistovny/horizontalni/cpp.svg"
+          },
+          "popis": null,
+          "zakladni": {
+            "skodyNaMajetku": 50000000,
+            "skodyNaZdravi": 50000000,
+            "asistence": "<div>Sporo</div>"
+          },
+          "parametry": {
+            "povinneRuceni": {
+              "typ": "RADIO",
+              "hodnota": "1"
+            },
+            "rozsirenaAsistence": {
+              "typ": "LIST",
+              "hodnota": "0"
+            },
+            "pravniAsistence": {
+              "typ": "RADIO",
+              "hodnota": "-1"
+            },
+            "nahradniVozidlo": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniSkel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniUrazu": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniZavazadel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "srazkaSeZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "poskozeniZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "zivel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "odcizeni": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "vandalismus": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "havarie": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "gap": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "spoluucast": {
+              "typ": "LIST",
+              "hodnota": "-1"
+            }
+          },
+          "dokumenty": [
+            {
+              "nazev": "Pojistné podmínky Autopojištění Combi Plus IV 1/21",
+              "url": "dokumenty/pojisteni-vozidel/cpp/pp-acp-iv_1_21.pdf"
+            },
+            {
+              "nazev": "Asistenční služby",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200172_tabulka_acp_iv_a_pluszaklad_02.pdf"
+            },
+            {
+              "nazev": "IPID - Pojištění vozidel",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200001_ipid-acp_iv_02.pdf"
+            },
+            {
+              "nazev": "Informace pro zájemce o pojištění",
+              "url": "dokumenty/pojisteni-vozidel/cpp/ipzop_acp_10_2020.pdf"
+            }
+          ],
+          "tipy": [],
+          "extra": [],
+          "top": false
+        },
+        {
+          "id": "CSOB_SUPERPOV",
+          "nazev": "SUPERPOV",
+          "pojisteniId": "VOZIDLA",
+          "pojisteniKategorieId": "POV",
+          "pojistovna": {
+            "id": "CSOB",
+            "nazev": "ČPP",
+            "logo": "images/loga_pojistovny/300/cpp.svg",
+            "logoHorizontal": "images/loga_pojistovny/horizontalni/cpp.svg"
+          },
+          "popis": null,
+          "zakladni": {
+            "skodyNaMajetku": 200000000,
+            "skodyNaZdravi": 200000000,
+            "asistence": "<div>Standard</div>"
+          },
+          "parametry": {
+            "povinneRuceni": {
+              "typ": "RADIO",
+              "hodnota": "1"
+            },
+            "rozsirenaAsistence": {
+              "typ": "LIST",
+              "hodnota": "0"
+            },
+            "pravniAsistence": {
+              "typ": "RADIO",
+              "hodnota": "-1"
+            },
+            "nahradniVozidlo": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniSkel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniUrazu": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniZavazadel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "srazkaSeZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "poskozeniZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "zivel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "odcizeni": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "vandalismus": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "havarie": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "gap": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "spoluucast": {
+              "typ": "LIST",
+              "hodnota": "-1"
+            }
+          },
+          "dokumenty": [
+            {
+              "nazev": "Pojistné podmínky Autopojištění Combi Plus IV 1/21",
+              "url": "dokumenty/pojisteni-vozidel/cpp/pp-acp-iv_1_21.pdf"
+            },
+            {
+              "nazev": "Asistenční služby",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200172_tabulka_acp_iv_a_pluszaklad_02.pdf"
+            },
+            {
+              "nazev": "IPID - Pojištění vozidel",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200001_ipid-acp_iv_02.pdf"
+            },
+            {
+              "nazev": "Informace pro zájemce o pojištění",
+              "url": "dokumenty/pojisteni-vozidel/cpp/ipzop_acp_10_2020.pdf"
+            }
+          ],
+          "tipy": [],
+          "extra": [],
+          "top": false
+        }
+      ],
+      "pocet": 3
+    }
+  },
+  "DIRECT": {
+    "vypocet": {
+      "pojisteniId": "VOZIDLA",
+      "pojistovnaId": "DIRECT",
+      "ceny": {
+        "DIRECT_SPECIALPOV": {
+          "povPojistne": 5035,
+          "havPojistne": null,
+          "extraPojistne": 0,
+          "rocniPojistne": 5035,
+          "lhutniPojistne": 5035,
+          "platba": "ROCNI",
+          "extra": [],
+          "detail": null
+        },
+        "DIRECT_SUPERPOV": {
+          "povPojistne": 6557,
+          "havPojistne": null,
+          "extraPojistne": 0,
+          "rocniPojistne": 6557,
+          "lhutniPojistne": 6557,
+          "platba": "ROCNI",
+          "extra": [],
+          "detail": null
+        }
+      },
+      "produkty": [
+        {
+          "id": "DIRECT_SPECIALPOV",
+          "nazev": "SPECIÁLPOV",
+          "pojisteniId": "VOZIDLA",
+          "pojisteniKategorieId": "POV",
+          "pojistovna": {
+            "id": "DIRECT",
+            "nazev": "ČPP",
+            "logo": "images/loga_pojistovny/300/cpp.svg",
+            "logoHorizontal": "images/loga_pojistovny/horizontalni/cpp.svg"
+          },
+          "popis": null,
+          "zakladni": {
+            "skodyNaMajetku": 100000000,
+            "skodyNaZdravi": 100000000,
+            "asistence": "<div>Standard</div>"
+          },
+          "parametry": {
+            "povinneRuceni": {
+              "typ": "RADIO",
+              "hodnota": "1"
+            },
+            "rozsirenaAsistence": {
+              "typ": "LIST",
+              "hodnota": "0"
+            },
+            "pravniAsistence": {
+              "typ": "RADIO",
+              "hodnota": "-1"
+            },
+            "nahradniVozidlo": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniSkel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniUrazu": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniZavazadel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "srazkaSeZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "poskozeniZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "zivel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "odcizeni": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "vandalismus": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "havarie": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "gap": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "spoluucast": {
+              "typ": "LIST",
+              "hodnota": "-1"
+            }
+          },
+          "dokumenty": [
+            {
+              "nazev": "Pojistné podmínky Autopojištění Combi Plus IV 1/21",
+              "url": "dokumenty/pojisteni-vozidel/cpp/pp-acp-iv_1_21.pdf"
+            },
+            {
+              "nazev": "Asistenční služby",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200172_tabulka_acp_iv_a_pluszaklad_02.pdf"
+            },
+            {
+              "nazev": "IPID - Pojištění vozidel",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200001_ipid-acp_iv_02.pdf"
+            },
+            {
+              "nazev": "Informace pro zájemce o pojištění",
+              "url": "dokumenty/pojisteni-vozidel/cpp/ipzop_acp_10_2020.pdf"
+            }
+          ],
+          "tipy": [],
+          "extra": [],
+          "top": false
+        },
+        {
+          "id": "DIRECT_SUPERPOV",
+          "nazev": "SUPERPOV",
+          "pojisteniId": "VOZIDLA",
+          "pojisteniKategorieId": "POV",
+          "pojistovna": {
+            "id": "DIRECT",
+            "nazev": "ČPP",
+            "logo": "images/loga_pojistovny/300/cpp.svg",
+            "logoHorizontal": "images/loga_pojistovny/horizontalni/cpp.svg"
+          },
+          "popis": null,
+          "zakladni": {
+            "skodyNaMajetku": 200000000,
+            "skodyNaZdravi": 200000000,
+            "asistence": "<div>Standard</div>"
+          },
+          "parametry": {
+            "povinneRuceni": {
+              "typ": "RADIO",
+              "hodnota": "1"
+            },
+            "rozsirenaAsistence": {
+              "typ": "LIST",
+              "hodnota": "0"
+            },
+            "pravniAsistence": {
+              "typ": "RADIO",
+              "hodnota": "-1"
+            },
+            "nahradniVozidlo": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniSkel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniUrazu": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniZavazadel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "srazkaSeZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "poskozeniZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "zivel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "odcizeni": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "vandalismus": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "havarie": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "gap": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "spoluucast": {
+              "typ": "LIST",
+              "hodnota": "-1"
+            }
+          },
+          "dokumenty": [
+            {
+              "nazev": "Pojistné podmínky Autopojištění Combi Plus IV 1/21",
+              "url": "dokumenty/pojisteni-vozidel/cpp/pp-acp-iv_1_21.pdf"
+            },
+            {
+              "nazev": "Asistenční služby",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200172_tabulka_acp_iv_a_pluszaklad_02.pdf"
+            },
+            {
+              "nazev": "IPID - Pojištění vozidel",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200001_ipid-acp_iv_02.pdf"
+            },
+            {
+              "nazev": "Informace pro zájemce o pojištění",
+              "url": "dokumenty/pojisteni-vozidel/cpp/ipzop_acp_10_2020.pdf"
+            }
+          ],
+          "tipy": [],
+          "extra": [],
+          "top": false
+        }
+      ],
+      "pocet": 2
+    }
+  },
+  "SLAVIA": {
+    "vypocet": {
+      "pojisteniId": "VOZIDLA",
+      "pojistovnaId": "SLAVIA",
+      "ceny": {
+        "SLAVIA_JISTOTA": {
+          "povPojistne": 6557,
+          "havPojistne": null,
+          "extraPojistne": 0,
+          "rocniPojistne": 6557,
+          "lhutniPojistne": 6557,
+          "platba": "ROCNI",
+          "extra": [],
+          "detail": null
+        }
+      },
+      "produkty": [
+        {
+          "id": "SLAVIA_JISTOTA",
+          "nazev": "JISTOTA",
+          "pojisteniId": "VOZIDLA",
+          "pojisteniKategorieId": "POV",
+          "pojistovna": {
+            "id": "SLAVIA",
+            "nazev": "Slávia",
+            "logo": "images/loga_pojistovny/300/cpp.svg",
+            "logoHorizontal": "images/loga_pojistovny/horizontalni/cpp.svg"
+          },
+          "popis": null,
+          "zakladni": {
+            "skodyNaMajetku": 200000000,
+            "skodyNaZdravi": 200000000,
+            "asistence": "<div>Standard</div>"
+          },
+          "parametry": {
+            "povinneRuceni": {
+              "typ": "RADIO",
+              "hodnota": "1"
+            },
+            "rozsirenaAsistence": {
+              "typ": "LIST",
+              "hodnota": "0"
+            },
+            "pravniAsistence": {
+              "typ": "RADIO",
+              "hodnota": "-1"
+            },
+            "nahradniVozidlo": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniSkel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniUrazu": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "pojisteniZavazadel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "srazkaSeZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "poskozeniZviretem": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "zivel": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "odcizeni": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "vandalismus": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "havarie": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "gap": {
+              "typ": "RADIO",
+              "hodnota": "0"
+            },
+            "spoluucast": {
+              "typ": "LIST",
+              "hodnota": "-1"
+            }
+          },
+          "dokumenty": [
+            {
+              "nazev": "Pojistné podmínky Autopojištění Combi Plus IV 1/21",
+              "url": "dokumenty/pojisteni-vozidel/cpp/pp-acp-iv_1_21.pdf"
+            },
+            {
+              "nazev": "Asistenční služby",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200172_tabulka_acp_iv_a_pluszaklad_02.pdf"
+            },
+            {
+              "nazev": "IPID - Pojištění vozidel",
+              "url": "dokumenty/pojisteni-vozidel/cpp/cpp200001_ipid-acp_iv_02.pdf"
+            },
+            {
+              "nazev": "Informace pro zájemce o pojištění",
+              "url": "dokumenty/pojisteni-vozidel/cpp/ipzop_acp_10_2020.pdf"
+            }
+          ],
+          "tipy": [],
+          "extra": [],
+          "top": false
+        }
+      ],
+      "pocet": 1
+    }
+  }
+}
